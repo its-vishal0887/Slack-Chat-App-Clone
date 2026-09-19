@@ -8,7 +8,7 @@ export default async function connectDB() {
     if (NODE_ENV == 'development') {
       await mongoose
         .connect(DEV_DB_URL, {
-          dbName: 'userDB'
+          dbName: 'clientDB'
         })
         .then(() => {
           console.log('DB connect Successfully');

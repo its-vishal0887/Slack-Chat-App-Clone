@@ -1,17 +1,17 @@
-import User from "../schema/users";
-import crudRepo from "./crudRepo";
+import User from '../schema/users.js';
+import crudRepo from './crudRepo.js';
 
 const userRepo = {
   ...crudRepo(User),
-  getByEmail:async function (email) {
-    const user = await User.findOne({email});
+  getByEmail: async function (email) {
+    const user = await User.findOne({ email });
     return user;
   },
-  getByUsername:async function (username) {
-    const user = await User.findOne({username});
+  getByUsername: async function (username) {
+    const user = await User.findOne({ username }).select(`-password`);
     return user;
   }
-}
+};
 
 // export const getUserByEmail = async(email) =>{
 //   const user = await User.findOne({email});
