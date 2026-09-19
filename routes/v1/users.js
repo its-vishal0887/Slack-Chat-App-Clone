@@ -1,8 +1,8 @@
 import express from 'express';
 import { StatusCodes } from 'http-status-codes';
 
-import { signup } from '../../controller/userController.js';
-import { userSighUpSchema } from '../../validators/userSchema.js';
+import { signIn, signup } from '../../controller/userController.js';
+import { userSighUpSchema, userSingInSchema } from '../../validators/userSchema.js';
 import { validate } from '../../validators/zodValidator.js';
 const router = express.Router();
 
@@ -11,5 +11,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/signup', validate(userSighUpSchema), signup);
+router.post('/signin', validate(userSingInSchema), signIn);
 
 export default router;
